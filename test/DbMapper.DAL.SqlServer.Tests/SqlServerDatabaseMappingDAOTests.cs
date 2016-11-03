@@ -1,4 +1,5 @@
 ﻿using DbMapper.BusinessObjects.DatabaseObjects;
+using DbMapper.DAL.Interfaces;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
