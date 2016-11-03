@@ -1,0 +1,1 @@
+sqlcmd -S .\SQLEXPRESS -i ..\SQLScripts\create-test-database.sql
