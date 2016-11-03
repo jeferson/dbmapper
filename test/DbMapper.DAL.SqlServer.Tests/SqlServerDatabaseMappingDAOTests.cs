@@ -15,7 +15,7 @@ namespace DbMapper.DAL.SqlServer.Tests
         [Test]
         public void GetDatabaseSchemas_OnlyDefaultSchema_ReturnsDefaultSchema()
         {
-            IDatabaseContext dbContext = new DatabaseContext(@"Data Source=.\SQLExpress;Initial Catalog=DbMapperTestDatabase;Integrated Security=True;ApplicationIntent=ReadOnly;Application Name=DbMapper.DAL.SqlServer.Tests;");
+            IDatabaseContext dbContext = new SimpleDatabaseContext(@"Data Source=.\SQLExpress;Initial Catalog=DbMapperTestDatabase;Integrated Security=True;ApplicationIntent=ReadOnly;Application Name=DbMapper.DAL.SqlServer.Tests;");
 
             IDatabaseMappingDAO dbMappingDAO = new SqlServerDatabaseMappingDAO();
 
