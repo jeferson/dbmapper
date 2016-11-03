@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CF15C9D6-7CC0-4EF5-AF05-7FD7F3697CF9}</ProjectGuid>
+    <ProjectGuid>{120F41CB-ABFA-4EC7-83A4-029850C09DB0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DbMapper.DAL.SqlServer.Tests</RootNamespace>
-    <AssemblyName>DbMapper.DAL.SqlServer.Tests</AssemblyName>
+    <RootNamespace>DbMapper.BusinessObjects</RootNamespace>
+    <AssemblyName>DbMapper.BusinessObjects</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -41,9 +41,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="IntegrationTests\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
