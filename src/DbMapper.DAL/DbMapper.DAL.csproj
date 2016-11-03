@@ -40,9 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IDatabaseMappingDAO.cs" />
     <Compile Include="SimpleDatabaseContext.cs" />
     <Compile Include="Interfaces\IDatabaseContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DbMapper.BusinessObjects\DbMapper.BusinessObjects.csproj">
+      <Project>{120f41cb-abfa-4ec7-83a4-029850c09db0}</Project>
+      <Name>DbMapper.BusinessObjects</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

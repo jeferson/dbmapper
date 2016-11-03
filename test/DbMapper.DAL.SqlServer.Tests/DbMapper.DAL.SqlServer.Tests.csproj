@@ -52,6 +52,10 @@
       <Project>{120f41cb-abfa-4ec7-83a4-029850c09db0}</Project>
       <Name>DbMapper.BusinessObjects</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\src\DbMapper.DAL.SqlServer\DbMapper.DAL.SqlServer.csproj">
+      <Project>{4a538c9a-2fc6-4123-83f4-3cde2bdefdc8}</Project>
+      <Name>DbMapper.DAL.SqlServer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\src\DbMapper.DAL\DbMapper.DAL.csproj">
       <Project>{74dba466-ddc0-4527-9224-7f277784f8bf}</Project>
       <Name>DbMapper.DAL</Name>
