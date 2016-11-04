@@ -42,6 +42,11 @@
   <ItemGroup>
     <Compile Include="DAO\SqlServerDatabaseMappingDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DbMapper.BusinessObjects\DbMapper.BusinessObjects.csproj">
@@ -52,6 +57,15 @@
       <Project>{74dba466-ddc0-4527-9224-7f277784f8bf}</Project>
       <Name>DbMapper.DAL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SQLScripts\SelectAllDatabaseSchemas.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

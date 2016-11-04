@@ -17,16 +17,9 @@ namespace DbMapper.DAL.SqlServer.DAO
         public IEnumerable<Schema> GetDatabaseSchemas()
         {
             IList<Schema> schemas = new List<Schema>();
-
-            string queryText =
-                "SELECT DISTINCT "
-                + "SCH.[schema_id] AS [schema_id], "
-                + "SCH.[name] AS [schema_name] "
-                + "FROM sys.tables AS TAB "
-                + "INNER JOIN sys.schemas AS SCH ON SCH.[schema_id] = TAB.[schema_id];";
-
+            
             using (SqlConnection connection = new SqlConnection(_dbContext.ConnectionString))
-            using (SqlCommand command = new SqlCommand(queryText, connection))
+            using (SqlCommand command = new SqlCommand(Resources.SelectAllDatabaseSchemas, connection))
             {
                 connection.Open();
 
