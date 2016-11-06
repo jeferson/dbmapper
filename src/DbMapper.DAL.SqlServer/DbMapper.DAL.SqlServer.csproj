@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="SQLScripts\SelectAllDatabaseSchemas.sql" />
+    <Content Include="SQLScripts\SelectAllDatabaseTables.sql" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources.resx">

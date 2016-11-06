@@ -6,5 +6,6 @@ namespace DbMapper.DAL.Interfaces
     public interface IDatabaseMappingDAO
     {
         IEnumerable<Schema> GetDatabaseSchemas();
+        IEnumerable<Table> GetDatabaseTables();
     }
 }

@@ -20,7 +20,7 @@ CREATE TABLE DbMapperTestDatabase.dbo.Companies
 	CompanyId					INT					NOT NULL		IDENTITY(1, 1),
 	CompanyCode					VARCHAR(30)			NOT NULL,
 	CompanyUniqueIdentifier		UNIQUEIDENTIFIER	NOT NULL,
-	CompanyCreateDate			DATE				NOT NULL
+	CompanyCreateDate			DATETIME			NOT NULL,
 	CONSTRAINT PK_Companies PRIMARY KEY (CompanyId)
 );
 GO

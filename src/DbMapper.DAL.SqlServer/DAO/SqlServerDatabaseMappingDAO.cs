@@ -2,6 +2,7 @@
 using DbMapper.DAL.Interfaces;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System;
 
 namespace DbMapper.DAL.SqlServer.DAO
 {
@@ -17,7 +18,7 @@ namespace DbMapper.DAL.SqlServer.DAO
         public IEnumerable<Schema> GetDatabaseSchemas()
         {
             IList<Schema> schemas = new List<Schema>();
-            
+
             using (SqlConnection connection = new SqlConnection(_dbContext.ConnectionString))
             using (SqlCommand command = new SqlCommand(Resources.SelectAllDatabaseSchemas, connection))
             {
@@ -37,6 +38,42 @@ namespace DbMapper.DAL.SqlServer.DAO
             }
 
             return schemas;
+        }
+
+        public IEnumerable<Table> GetDatabaseTables()
+        {
+            IList<Table> tables = new List<Table>();
+
+            using (SqlConnection connection = new SqlConnection(_dbContext.ConnectionString))
+            using (SqlCommand command = new SqlCommand(Resources.SelectAllDatabaseTables, connection))
+            {
+                connection.Open();
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while(reader.Read())
+                    {
+                        int tableObjectId = (int)reader["table_object_id"];
+                        string tableObjectName = (string)reader["table_object_name"];
+                        DateTime tableCreateDate = (DateTime)reader["table_create_date"];
+                        DateTime tableModifyDate = (DateTime)reader["table_modify_date"];
+                        int schemaId = (int)reader["schema_object_id"];
+
+                        Table table = new Table
+                        {
+                            TableObjectId = tableObjectId,
+                            TableObjectName = tableObjectName,
+                            TableCreateDate = tableCreateDate,
+                            TableModifyDate = tableModifyDate,
+                            SchemaId = schemaId
+                        };
+
+                        tables.Add(table);
+                    }
+                }
+            }
+
+            return tables;
         }
     }
 }

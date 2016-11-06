@@ -72,5 +72,22 @@ namespace DbMapper.DAL.SqlServer {
                 return ResourceManager.GetString("SelectAllDatabaseSchemas", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT
+        ///	TAB.[object_id] AS [table_object_id],
+        ///	TAB.[name] AS [table_object_name],
+        ///	TAB.[create_date] AS [table_create_date],
+        ///	TAB.[modify_date] AS [table_modify_date],
+        ///	SCH.[schema_id] AS [schema_object_id]
+        ///FROM sys.tables AS TAB
+        ///	INNER JOIN sys.schemas AS SCH ON SCH.[schema_id] = TAB.[schema_id];
+        ///.
+        /// </summary>
+        internal static string SelectAllDatabaseTables {
+            get {
+                return ResourceManager.GetString("SelectAllDatabaseTables", resourceCulture);
+            }
+        }
     }
 }
