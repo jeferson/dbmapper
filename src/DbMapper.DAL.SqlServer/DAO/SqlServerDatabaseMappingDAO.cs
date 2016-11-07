@@ -1,9 +1,8 @@
 ﻿using DbMapper.BusinessObjects.DatabaseObjects;
 using DbMapper.DAL.Interfaces;
+using DbMapper.DAL.SqlServer.DAOMappers;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System;
-using DbMapper.DAL.SqlServer.DAOMappers;
 
 namespace DbMapper.DAL.SqlServer.DAO
 {
