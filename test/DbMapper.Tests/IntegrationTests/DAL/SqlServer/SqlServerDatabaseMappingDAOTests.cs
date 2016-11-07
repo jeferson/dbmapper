@@ -6,7 +6,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DbMapper.Tests.IntegrationTests
+namespace DbMapper.Tests.IntegrationTests.DAL.SqlServer
 {
 
     [TestFixture]
