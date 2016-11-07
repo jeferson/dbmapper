@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbMapper.DAL.SqlServer", "s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbMapper.Core", "src\DbMapper.Core\DbMapper.Core.csproj", "{C4734838-BF32-4C0E-99F9-4C7214CDF728}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbMapper.Tests", "test\DbMapper.Tests\DbMapper.Tests.csproj", "{104D9E6A-A25F-455E-8EBE-355070C7782A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{C4734838-BF32-4C0E-99F9-4C7214CDF728}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4734838-BF32-4C0E-99F9-4C7214CDF728}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4734838-BF32-4C0E-99F9-4C7214CDF728}.Release|Any CPU.Build.0 = Release|Any CPU
+		{104D9E6A-A25F-455E-8EBE-355070C7782A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{104D9E6A-A25F-455E-8EBE-355070C7782A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{104D9E6A-A25F-455E-8EBE-355070C7782A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{104D9E6A-A25F-455E-8EBE-355070C7782A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,5 +59,6 @@ Global
 		{74DBA466-DDC0-4527-9224-7F277784F8BF} = {A6489B18-6E77-4E85-A915-79B1EDA8B3F9}
 		{4A538C9A-2FC6-4123-83F4-3CDE2BDEFDC8} = {A6489B18-6E77-4E85-A915-79B1EDA8B3F9}
 		{C4734838-BF32-4C0E-99F9-4C7214CDF728} = {A6489B18-6E77-4E85-A915-79B1EDA8B3F9}
+		{104D9E6A-A25F-455E-8EBE-355070C7782A} = {5C72FA2E-D3CB-478D-9D50-D9E7660F286C}
 	EndGlobalSection
 EndGlobal

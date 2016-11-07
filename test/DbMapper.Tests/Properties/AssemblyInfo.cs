@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DbMapper.DAL.SqlServer.Tests")]
+[assembly: AssemblyTitle("DbMapper.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("DbMapper.DAL.SqlServer.Tests")]
+[assembly: AssemblyProduct("DbMapper.Tests")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("cf15c9d6-7cc0-4ef5-af05-7fd7f3697cf9")]
+[assembly: Guid("104d9e6a-a25f-455e-8ebe-355070c7782a")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -1,13 +1,16 @@
 ﻿using DbMapper.BusinessObjects.DatabaseObjects;
+using DbMapper.DAL;
 using DbMapper.DAL.Interfaces;
 using DbMapper.DAL.SqlServer.DAO;
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DbMapper.DAL.SqlServer.Tests
+namespace DbMapper.Tests.IntegrationTests
 {
+
     [TestFixture]
+    [Category("IntegrationTests")]
     public class SqlServerDatabaseMappingDAOTests
     {
         private IDatabaseContext _dbContext;
@@ -33,7 +36,7 @@ namespace DbMapper.DAL.SqlServer.Tests
         public void GetDatabaseTables_ExistingTables_ReturnsExistingTables()
         {
             IEnumerable<Table> tables = _dbMappingDAO.GetDatabaseTables();
-            
+
             Assert.Greater(tables.Count(), 0);
         }
     }
