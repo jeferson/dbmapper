@@ -3,6 +3,7 @@ using DbMapper.DAL.Interfaces;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System;
+using DbMapper.DAL.SqlServer.DAOMappers;
 
 namespace DbMapper.DAL.SqlServer.DAO
 {
@@ -17,63 +18,32 @@ namespace DbMapper.DAL.SqlServer.DAO
 
         public IEnumerable<Schema> GetDatabaseSchemas()
         {
-            IList<Schema> schemas = new List<Schema>();
-
-            using (SqlConnection connection = new SqlConnection(_dbContext.ConnectionString))
-            using (SqlCommand command = new SqlCommand(Resources.SelectAllDatabaseSchemas, connection))
-            {
-                connection.Open();
-
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        int schemaId = (int)reader["schema_id"];
-                        string schemaName = (string)reader["schema_name"];
-
-                        Schema schema = new Schema { SchemaId = schemaId, SchemaName = schemaName };
-                        schemas.Add(schema);
-                    }
-                }
-            }
-
-            return schemas;
+            return GetDatabaseObjects<Schema>(Resources.SelectAllDatabaseSchemas);
         }
 
         public IEnumerable<Table> GetDatabaseTables()
         {
-            IList<Table> tables = new List<Table>();
+            return GetDatabaseObjects<Table>(Resources.SelectAllDatabaseTables);
+        }
+
+        private IEnumerable<T> GetDatabaseObjects<T>(string sqlCommandText)
+            where T : new()
+        {
+            IList<T> objs = new List<T>();
 
             using (SqlConnection connection = new SqlConnection(_dbContext.ConnectionString))
-            using (SqlCommand command = new SqlCommand(Resources.SelectAllDatabaseTables, connection))
+            using (SqlCommand command = new SqlCommand(sqlCommandText, connection))
             {
                 connection.Open();
 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     while(reader.Read())
-                    {
-                        int tableObjectId = (int)reader["table_object_id"];
-                        string tableObjectName = (string)reader["table_object_name"];
-                        DateTime tableCreateDate = (DateTime)reader["table_create_date"];
-                        DateTime tableModifyDate = (DateTime)reader["table_modify_date"];
-                        int schemaId = (int)reader["schema_object_id"];
-
-                        Table table = new Table
-                        {
-                            TableObjectId = tableObjectId,
-                            TableObjectName = tableObjectName,
-                            TableCreateDate = tableCreateDate,
-                            TableModifyDate = tableModifyDate,
-                            SchemaId = schemaId
-                        };
-
-                        tables.Add(table);
-                    }
+                        objs.Add(DefaultMapper.Map<T>(reader));
                 }
             }
 
-            return tables;
+            return objs;
         }
     }
 }
