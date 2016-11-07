@@ -40,7 +40,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseMapper.cs" />
+    <Compile Include="Interfaces\IDatabaseMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DbMapper.BusinessObjects\DbMapper.BusinessObjects.csproj">
+      <Project>{120f41cb-abfa-4ec7-83a4-029850c09db0}</Project>
+      <Name>DbMapper.BusinessObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DbMapper.DAL\DbMapper.DAL.csproj">
+      <Project>{74dba466-ddc0-4527-9224-7f277784f8bf}</Project>
+      <Name>DbMapper.DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -37,7 +37,7 @@ namespace DbMapper.Tests.IntegrationTests.DAL.SqlServer
         {
             IEnumerable<Table> tables = _dbMappingDAO.GetDatabaseTables();
 
-            Assert.Greater(tables.Count(), 0);
+            Assert.IsNotEmpty(tables);
         }
     }
 }
