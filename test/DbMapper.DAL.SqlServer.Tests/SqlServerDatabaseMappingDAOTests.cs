@@ -2,7 +2,6 @@
 using DbMapper.DAL.Interfaces;
 using DbMapper.DAL.SqlServer.DAO;
 using NUnit.Framework;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
