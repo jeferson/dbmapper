@@ -20,5 +20,10 @@ namespace DbMapper.Core
         {
             DatabaseMapping.Schemas = _dbMappingDAO.GetDatabaseSchemas().ToArray();
         }
+
+        public void MapTables()
+        {
+            DatabaseMapping.Tables = _dbMappingDAO.GetDatabaseTables().ToArray();
+        }
     }
 }
