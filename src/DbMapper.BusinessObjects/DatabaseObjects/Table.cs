@@ -8,7 +8,6 @@ namespace DbMapper.BusinessObjects.DatabaseObjects
         public string TableObjectName { get; set; }
         public DateTime TableCreateDate { get; set; }
         public DateTime TableModifyDate { get; set; }
-
         public int SchemaId { get; set; }
         public Schema Schema { get; set; }
     }

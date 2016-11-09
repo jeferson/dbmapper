@@ -1,4 +1,5 @@
 ﻿using DbMapper.BusinessObjects;
+using DbMapper.BusinessObjects.DatabaseObjects;
 using DbMapper.Core.Interfaces;
 using DbMapper.DAL.Interfaces;
 using System;
@@ -37,6 +38,21 @@ namespace DbMapper.Core
         {
             if (DatabaseMapping.Schemas.Length <= 0) throw new InvalidOperationException("No schemas mapped");
             if (DatabaseMapping.Tables.Length <= 0) throw new InvalidOperationException("No tables mapped");
+            
+            DatabaseMapping.Tables.Select(
+                table =>
+                {
+                    var schema = DatabaseMapping.Schemas.Single(s => s.SchemaId == table.SchemaId);
+
+                    // Map Schema to Table.Schema reference
+                    table.Schema = schema;
+
+                    // Add table into Schema.
+                    schema.Tables.Add(table);
+
+                    return (Table)null;
+                }
+            ).ToArray();
         }
     }
 }
