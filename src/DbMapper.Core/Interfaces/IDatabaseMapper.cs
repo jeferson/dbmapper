@@ -10,5 +10,7 @@ namespace DbMapper.Core.Interfaces
 
         void MapSchemas();
         void MapTables();
+
+        void MapSchemaTableRelationships();
     }
 }

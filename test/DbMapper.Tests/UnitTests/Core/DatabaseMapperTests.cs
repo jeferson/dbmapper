@@ -103,6 +103,7 @@ namespace DbMapper.Tests.UnitTests.Core
 
         #region .: MapSchemaTablesRelationships Tests :. 
 
+        [Test]
         public void MapSchemaTableRelationships_NoMappedSchemas_ThrowsInvalidOperationException()
         {
             // Arrange
@@ -124,7 +125,32 @@ namespace DbMapper.Tests.UnitTests.Core
             dbMapper.MapSchemas();
             dbMapper.MapTables();
 
-            Assert.Throws<InvalidOperationException>(dbMapper.MapSchemaTableRelationships());
+            // Assert
+            Assert.Throws<InvalidOperationException>(() => { dbMapper.MapSchemaTableRelationships(); });
+        }
+
+        [Test]
+        public void MapSchemaTableRelationships_NoMappedTables_ThrowsInvalidOperationException()
+        {
+            // Arrange
+            Schema[] schemas = new Schema[]
+            {
+                new Schema { SchemaId = 1, SchemaName = "Schema 1" },
+                new Schema { SchemaId = 2, SchemaName = "Schema 2" },
+                new Schema { SchemaId = 3, SchemaName = "Schema 3" },
+            };
+
+            IDatabaseMappingDAO dbMappingDAO = Substitute.For<IDatabaseMappingDAO>();
+            dbMappingDAO.GetDatabaseSchemas().Returns(schemas);
+            dbMappingDAO.GetDatabaseTables().Returns(new List<Table>());
+
+            // Act
+            IDatabaseMapper dbMapper = new DatabaseMapper(dbMappingDAO);
+            dbMapper.MapSchemas();
+            dbMapper.MapTables();
+
+            // Assert
+            Assert.Throws<InvalidOperationException>(() => { dbMapper.MapSchemaTableRelationships(); });
         }
 
         #endregion .: MapSchemaTablesRelationships Tests :. 
