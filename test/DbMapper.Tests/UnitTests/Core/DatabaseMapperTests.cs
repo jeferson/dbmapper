@@ -100,5 +100,33 @@ namespace DbMapper.Tests.UnitTests.Core
         }
 
         #endregion .: MapTables Tests :.
+
+        #region .: MapSchemaTablesRelationships Tests :. 
+
+        public void MapSchemaTableRelationships_NoMappedSchemas_ThrowsInvalidOperationException()
+        {
+            // Arrange
+            Table[] tables = new Table[]
+            {
+                new Table { TableObjectId = 1, TableObjectName = "Table 1", TableCreateDate = DateTime.Now, TableModifyDate = DateTime.Now, SchemaId = 1 },
+                new Table { TableObjectId = 2, TableObjectName = "Table 2", TableCreateDate = DateTime.Now, TableModifyDate = DateTime.Now, SchemaId = 1 },
+                new Table { TableObjectId = 3, TableObjectName = "Table 3", TableCreateDate = DateTime.Now, TableModifyDate = DateTime.Now, SchemaId = 1 },
+                new Table { TableObjectId = 4, TableObjectName = "Table 4", TableCreateDate = DateTime.Now, TableModifyDate = DateTime.Now, SchemaId = 1 },
+                new Table { TableObjectId = 5, TableObjectName = "Table 5", TableCreateDate = DateTime.Now, TableModifyDate = DateTime.Now, SchemaId = 1 },
+            };
+
+            IDatabaseMappingDAO dbMappingDAO = Substitute.For<IDatabaseMappingDAO>();
+            dbMappingDAO.GetDatabaseSchemas().Returns(new List<Schema>());
+            dbMappingDAO.GetDatabaseTables().Returns(tables);
+
+            // Act
+            IDatabaseMapper dbMapper = new DatabaseMapper(dbMappingDAO);
+            dbMapper.MapSchemas();
+            dbMapper.MapTables();
+
+            Assert.Throws<InvalidOperationException>(dbMapper.MapSchemaTableRelationships());
+        }
+
+        #endregion .: MapSchemaTablesRelationships Tests :. 
     }
 }

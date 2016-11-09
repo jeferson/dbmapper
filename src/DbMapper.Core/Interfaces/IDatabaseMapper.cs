@@ -6,6 +6,8 @@ namespace DbMapper.Core.Interfaces
     {
         DatabaseMap DatabaseMapping { get; }
 
+        void Map();
+
         void MapSchemas();
         void MapTables();
     }
