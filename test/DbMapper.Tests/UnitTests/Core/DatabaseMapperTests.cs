@@ -81,8 +81,8 @@ namespace DbMapper.Tests.UnitTests.Core
             // Arrange
             var table = new Table
             {
-                TableObjectId = 1000,
-                TableObjectName = "TableName",
+                TableId = 1000,
+                TableName = "TableName",
                 TableCreateDate = DateTime.Today - TimeSpan.FromDays(-30),
                 TableModifyDate = DateTime.Today - TimeSpan.FromDays(-15),
                 SchemaId = 1
@@ -111,11 +111,11 @@ namespace DbMapper.Tests.UnitTests.Core
             // Arrange
             Table[] tables = new Table[]
             {
-                new Table { TableObjectId = 1, TableObjectName = "Table 1", TableCreateDate = DateTime.Now, TableModifyDate = DateTime.Now, SchemaId = 1 },
-                new Table { TableObjectId = 2, TableObjectName = "Table 2", TableCreateDate = DateTime.Now, TableModifyDate = DateTime.Now, SchemaId = 1 },
-                new Table { TableObjectId = 3, TableObjectName = "Table 3", TableCreateDate = DateTime.Now, TableModifyDate = DateTime.Now, SchemaId = 1 },
-                new Table { TableObjectId = 4, TableObjectName = "Table 4", TableCreateDate = DateTime.Now, TableModifyDate = DateTime.Now, SchemaId = 1 },
-                new Table { TableObjectId = 5, TableObjectName = "Table 5", TableCreateDate = DateTime.Now, TableModifyDate = DateTime.Now, SchemaId = 1 },
+                new Table { TableId = 1, TableName = "Table 1", TableCreateDate = DateTime.Now, TableModifyDate = DateTime.Now, SchemaId = 1 },
+                new Table { TableId = 2, TableName = "Table 2", TableCreateDate = DateTime.Now, TableModifyDate = DateTime.Now, SchemaId = 1 },
+                new Table { TableId = 3, TableName = "Table 3", TableCreateDate = DateTime.Now, TableModifyDate = DateTime.Now, SchemaId = 1 },
+                new Table { TableId = 4, TableName = "Table 4", TableCreateDate = DateTime.Now, TableModifyDate = DateTime.Now, SchemaId = 1 },
+                new Table { TableId = 5, TableName = "Table 5", TableCreateDate = DateTime.Now, TableModifyDate = DateTime.Now, SchemaId = 1 },
             };
 
             IDatabaseMappingDAO dbMappingDAO = Substitute.For<IDatabaseMappingDAO>();
@@ -171,12 +171,12 @@ namespace DbMapper.Tests.UnitTests.Core
 
             Table[] tables = new Table[]
             {
-                new Table { TableObjectId = 1, TableObjectName = "Table 1", TableCreateDate = tableCreateDate, TableModifyDate = tableModifyDate, SchemaId = 1 },
-                new Table { TableObjectId = 2, TableObjectName = "Table 2", TableCreateDate = tableCreateDate, TableModifyDate = tableModifyDate, SchemaId = 1 },
-                new Table { TableObjectId = 3, TableObjectName = "Table 3", TableCreateDate = tableCreateDate, TableModifyDate = tableModifyDate, SchemaId = 2 },
-                new Table { TableObjectId = 4, TableObjectName = "Table 4", TableCreateDate = tableCreateDate, TableModifyDate = tableModifyDate, SchemaId = 2 },
-                new Table { TableObjectId = 5, TableObjectName = "Table 5", TableCreateDate = tableCreateDate, TableModifyDate = tableModifyDate, SchemaId = 3 },
-                new Table { TableObjectId = 6, TableObjectName = "Table 6", TableCreateDate = tableCreateDate, TableModifyDate = tableModifyDate, SchemaId = 3 }
+                new Table { TableId = 1, TableName = "Table 1", TableCreateDate = tableCreateDate, TableModifyDate = tableModifyDate, SchemaId = 1 },
+                new Table { TableId = 2, TableName = "Table 2", TableCreateDate = tableCreateDate, TableModifyDate = tableModifyDate, SchemaId = 1 },
+                new Table { TableId = 3, TableName = "Table 3", TableCreateDate = tableCreateDate, TableModifyDate = tableModifyDate, SchemaId = 2 },
+                new Table { TableId = 4, TableName = "Table 4", TableCreateDate = tableCreateDate, TableModifyDate = tableModifyDate, SchemaId = 2 },
+                new Table { TableId = 5, TableName = "Table 5", TableCreateDate = tableCreateDate, TableModifyDate = tableModifyDate, SchemaId = 3 },
+                new Table { TableId = 6, TableName = "Table 6", TableCreateDate = tableCreateDate, TableModifyDate = tableModifyDate, SchemaId = 3 }
             };
 
             IDatabaseMappingDAO dbMappingDAO = Substitute.For<IDatabaseMappingDAO>();
@@ -195,8 +195,8 @@ namespace DbMapper.Tests.UnitTests.Core
             #region .: Asserts for schema 1 :.
 
             var schema1 = schemas.Single(s => s.SchemaId == 1);
-            var table1 = tables.Single(t => t.TableObjectId == 1);
-            var table2 = tables.Single(t => t.TableObjectId == 2);
+            var table1 = tables.Single(t => t.TableId == 1);
+            var table2 = tables.Single(t => t.TableId == 2);
 
             // Asserts that tables 1 and 2 points to schema1
             Assert.AreSame(schema1, table1.Schema);
@@ -212,8 +212,8 @@ namespace DbMapper.Tests.UnitTests.Core
             #region .: Asserts for schema 2 :.
 
             var schema2 = schemas.Single(s => s.SchemaId == 2);
-            var table3 = tables.Single(t => t.TableObjectId == 3);
-            var table4 = tables.Single(t => t.TableObjectId == 4);
+            var table3 = tables.Single(t => t.TableId == 3);
+            var table4 = tables.Single(t => t.TableId == 4);
 
             // Asserts that tables 3 and 4 points to schema2
             Assert.AreSame(schema2, table3.Schema);
@@ -228,8 +228,8 @@ namespace DbMapper.Tests.UnitTests.Core
             #region .: Asserts for schema 3 :.
 
             var schema3 = schemas.Single(s => s.SchemaId == 3);
-            var table5 = tables.Single(t => t.TableObjectId == 5);
-            var table6 = tables.Single(t => t.TableObjectId == 6);
+            var table5 = tables.Single(t => t.TableId == 5);
+            var table6 = tables.Single(t => t.TableId == 6);
 
             // Asserts that tables 5 and 6 points to schema3
             Assert.AreSame(schema3, table5.Schema);

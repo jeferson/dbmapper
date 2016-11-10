@@ -44,8 +44,8 @@ namespace DbMapper.DAL.SqlServer.DAOMappers
 
             return new Table
             {
-                TableObjectId = tableObjectId,
-                TableObjectName = tableObjectName,
+                TableId = tableObjectId,
+                TableName = tableObjectName,
                 TableCreateDate = tableCreateDate,
                 TableModifyDate = tableModifyDate,
                 SchemaId = schemaId
